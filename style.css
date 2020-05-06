@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
 html {
     scroll-behavior: smooth;
 }
@@ -192,49 +194,42 @@ section {
     50% { border-color: orange }
 }
 
-@keyframes tipsy {
-    from {
-      transform: translateX(-50%) translateY(-50%) rotate(0deg);
-    }
-    to {
-      transform: translateX(-50%) translateY(-50%) rotate(360deg);
-    }
-}
-  
-  
 #temp-animation {
-    color: #fffbf1;
-    text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
-    font-size: 60px;
-    text-decoration: none;
-    letter-spacing: -3px;
-    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    display: inline-block;
     position: absolute;
+    top: 80px;
     left: 50%;
-    top: 100px;
-    transform: translateX(-50%) translateY(-50%);
+    width: 40em;
+    margin: 0 0 0 -20em;
 }
-  
-#temp-animation:before,
-#temp-animation:after {
-    content: '';
-    padding: .9em .4em;
-    position: absolute;
-    left: 50%;
-    width: 100%;
-    top: 50%;
+
+#temp-animation span {
+    font: 4vw "Oswald", sans-serif;
+    letter-spacing: 0;
+    padding: 0.25em 0 0.325em;
     display: block;
-    border: 15px solid red;
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
-    animation: 10s infinite alternate ease-in-out tipsy;
-  }
-  
-#temp-animation:before {
-    border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-    z-index: -1;
+    margin: 0 auto;
+    text-shadow: 0 0 80px rgba(255, 255, 255, .5);
+   /* Clip Background Image */
+    background: url(http://f.cl.ly/items/010q3E1u3p2Q0j1L1S1o/animated_text_fill.png) repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+   /* Animate Background Image */
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 80s linear infinite;
+   /* Activate hardware acceleration for smoother animations */
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
 }
-  
-#temp-animation:after {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
-    box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+/* Animate Background Image */
+@keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+   }
+    100% {
+        background-position: 100% 50%;
+   }
 }
+
